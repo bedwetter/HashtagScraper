@@ -19,10 +19,11 @@ class HashScraper:
 
         fox_cap = DesiredCapabilities.FIREFOX
         fox_cap['marionette'] = True
+        # geckodriver path here!!!!
         fox_cap['binary'] = '/usr/local/bin/geckodriver'
 
-        #self.browser = webdriver.Firefox()
-        self.browser = webdriver.PhantomJS('/Users/Ty/Downloads/phantomjs')
+        # Enter phatomjs binary path here!
+        self.browser = webdriver.PhantomJS('/Users/downloads/phantomjs')
         # needed
         self.browser.set_window_size(1000, 800)
         self.browser.get("https://www.instagram.com/instagram/")
