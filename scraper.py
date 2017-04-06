@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-
+import signal
 import time
 
 from bs4 import BeautifulSoup
@@ -13,17 +13,13 @@ from bs4 import BeautifulSoup
 # ig scraper
 # scrapes popular hashtags
 
+path = '' # phantomjs path here
+
 class HashScraper:
 
     def __init__(self):
 
-        fox_cap = DesiredCapabilities.FIREFOX
-        fox_cap['marionette'] = True
-        # geckodriver path here!!!!
-        fox_cap['binary'] = '/usr/local/bin/geckodriver'
-
-        # Enter phatomjs binary path here!
-        self.browser = webdriver.PhantomJS('/Users/downloads/phantomjs')
+        self.browser = webdriver.PhantomJS(path)
         # needed
         self.browser.set_window_size(1000, 800)
         self.browser.get("https://www.instagram.com/instagram/")
@@ -48,16 +44,14 @@ class HashScraper:
         soup = BeautifulSoup(html, 'html.parser')
         for tags in soup.find_all('a', {'class': '_k2vj6'}):
             print('#' + tags.get_text())
-
-    def execute(self):
-
-        self.input_tags()
-        # gotta wait sometimes
-        time.sleep(3)
-        self.scrape()
+            
+        self.browser.service.process.send_signal(signal.SIGTERM) # kill the specific phantomjs child proc
         self.browser.quit()
 
 if __name__ == '__main__':
 
     hash_scrape = HashScraper()
-    hash_scrape.execute()
+    hash_scrape.input_tags()
+    time.sleep(2)
+    hash_scrape.scrape()
+
