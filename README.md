@@ -6,6 +6,8 @@ You need to have python 3+ installed on your system, including the required modu
 - BS4 
 - Selenium
 
+You also have to change the path of the phatomjs driver to your correct path, if you don't have the excutable donwloaded here's where you can http://phantomjs.org/build.html!!!!
+
 ## How it works
 
 You run scraper.py in command line using,
