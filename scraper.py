@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 
 class HashScraper:
 
-    def main(self):
+    def __init__(self):
 
         fox_cap = DesiredCapabilities.FIREFOX
         fox_cap['marionette'] = True
@@ -51,7 +51,6 @@ class HashScraper:
 
     def execute(self):
 
-        self.main()
         self.input_tags()
         # gotta wait sometimes
         time.sleep(3)
