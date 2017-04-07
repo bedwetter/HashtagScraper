@@ -1,5 +1,5 @@
 # HashtagScraper
-Scrapes popular instagram hashtags based on users input.
+Command-line tool that scrapes popular instagram hashtags based on users input.
 
 # Installation
 You need to have python 3+ installed on your system, including the required modules:
