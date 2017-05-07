@@ -4,9 +4,7 @@ Command-line tool that scrapes popular instagram hashtags based on users input.
 # Installation
 You need to have python 3+ installed on your system, including the required modules:
 - BS4 
-- Selenium
-
-You also have to change the path of the phatomjs driver to your correct path, if you don't have the excutable donwloaded here's where you can http://phantomjs.org/build.html!!!!
+- Requests
 
 ## How it works
 
