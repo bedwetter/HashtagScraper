@@ -17,7 +17,3 @@ j_hash = j['hashtags']
 for info in j_hash:
     name = info['hashtag']['name']
     print('#' + name)
-
-
-if __name__ == "__main__":
-    run = get_tags()
